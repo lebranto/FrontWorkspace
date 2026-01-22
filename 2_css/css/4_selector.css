@@ -1,0 +1,38 @@
+/* only-child */
+#test1 > p:only-child{
+    background-color: blue;
+}
+
+
+/* only-of-type */
+#test2 > p:only-of-type{
+    background-color: blue;
+}
+
+
+/* empty */
+
+#test3 > p:empty{
+    height: 30px;
+    background-color: lime;
+}
+
+
+/* 여러선택자 동시 선택 */
+/* 그냥 띄어쓰면 후손 선택자가 되니 주의 */
+#test4-1, #test4-2, .test4-3{
+    background-color: yellow;
+}
+
+/* 특정 요소 내부의 클래스 선택 */
+/* 붙여쓰면 된다 */
+#test5-1 li.c5{
+    background-color: aquamarine;
+}
+
+/* 여러클래스를 가진 요소 선택 */
+/* id 값은 안됨, 두개를 동시에 쓰지 못하니까 */
+
+.c6.test6{
+    background-color: chartreuse;
+}

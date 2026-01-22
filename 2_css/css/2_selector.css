@@ -96,9 +96,9 @@ div[class*=i]{
 }
 
 /* a~b : a요소 뒤에 모든 b요소 다 선택 */
-#test2~div{
-    /* background-color:blueviolet */
-}
+/* #test2~div{
+    /* background-color:blueviolet 
+} */
 
 #test2~ul{
     background-color:blueviolet
@@ -138,4 +138,12 @@ input[type=checkbox]:checked+label{
 
 input:focus{
     background-color: pink;
+}
+
+button:enabled{
+    background-color: pink;
+}
+
+button:disabled{
+    background-color: red;
 }

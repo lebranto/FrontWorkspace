@@ -1,0 +1,117 @@
+.area1{ background-color: red;}
+.area2{ background-color: orange;}
+.area3{ background-color: yellow;}
+.area4{ background-color: green;}
+.area5{ background-color: blue;}
+
+.block{
+    border : 1px solid black;
+    width: 150px;
+    height: 150px;
+    color : white;
+
+    display: block;
+    /* 눈에 보이지는 않지만 한줄 전체 영역을 차지하는 중이다 */
+}
+
+.inline{
+    display:inline
+    /* 가로세로 크기 지정 안됨 */
+}
+
+
+.inline-block{
+    display : inline-block;
+}
+
+#container-1{
+    border : 3px solid black;
+    width : 200px;
+    height : 300px;
+}
+
+#container-1>div:first-of-type{
+    /* width : 100%; */
+    height : 30%;
+    background-color: red;
+    color:red;
+    
+}
+
+#container-1>div:last-of-type{
+     /* width : 100%; */
+    height: 70%;
+    background-color: blue;
+    
+}
+
+/* 부모 요소는 px로 고정 시키고 자식은 가변 요소로 바꿔준다 */
+
+
+
+#container-2{
+    border : 2px solid black;
+    width : 300px;
+    height: 440px;
+}
+
+#container-2 >div:first-of-type{
+    height: 20%;
+    background-color: yellowgreen;
+}
+
+#container-2 >div:nth-child(2){
+    height: 30%;
+    background-color: orangered;
+}
+
+#container-2 >div:last-of-type{
+    height: 50%;
+    background-color: skyblue;
+}
+
+
+#container-3{
+    border : 5px solid red;
+    height: 200px;
+    width: 400px;
+    
+}
+#container-3 >div{
+    width: 50%;
+    height: 100;
+    display: inline-block;
+    
+}
+
+#container-3> div:first-child{
+    width: 50%;
+    height:100%;
+    background-color: pink;
+
+}
+
+#container-3> div:last-child{
+    width: 50%;
+    height:100%;
+    background-color: blue;
+}
+
+.div-4{
+    border: 3px solid black;
+    height: 100px;
+}
+
+#test4{
+    background-color: deeppink;
+    /* display: none; */
+
+    /* 요소는 존재하지만 화연에 보이지 않는다
+     더불어 영역도 차지하지 않는다 */
+
+     /* opacity: 0.5;  */
+     /* opacity 요소의 가시성 관리 */
+
+     visibility: hidden;
+     /* visibility 요소의 투명도를 0으로 만드는 속성 */
+}
