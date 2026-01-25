@@ -1,4 +1,4 @@
-div#container1.highlight{
+#container1.highlight{
     background-color: yellow;
 }
 
@@ -10,11 +10,11 @@ div#container1.highlight{
     color:red
 }
 
-#container3>input:not(:last-child){
+#container3>input:not(input[type=submit]){
     border : 1px solid blue;
 }
 
-#container4>.title, h1{
+#container4>.title, #container4> h1{
     color :green;
     font-size: 20px;
 }
@@ -27,12 +27,19 @@ div[class$=info]{
     color : red;
 }
 
-div[class*=product]{
+div[class~=product]{
     background-color: coral;
 }
 
 div[class|=admin]{
     background-color: greenyellow;
+}
+
+#container6 > input:focus{
+    background-color: yellow;
+}
+#container6 > input:hover{
+    background-color: green;
 }
 
 #container7> li:nth-of-type(2){

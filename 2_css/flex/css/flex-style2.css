@@ -1,0 +1,32 @@
+.flex-container{
+    height: 75vh;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    /* 
+    
+        align-content
+         - 교차축방향으로 포장된 item들을 정렬하는 방법
+         - 단, flex-wrap 속성이 wrap 혹은 wrap-reverse 일때만 가능
+         - 속성값으로는 justify-content의 모든 값을 사용할 수 있다.
+    
+    */
+
+    /* 교차축 기준 시작점으로 정렬(빈공간 없이 정렬된다.*/
+    align-content: flex-start;
+    /* 교차축 기준 끝점으로 정렬(빈공간 없이 정렬된다.*/
+    align-content: flex-end;
+    /* 교차축 기준 중앙에 정렬(빈공간 없이 정렬된다.*/
+    align-content: center;
+    
+
+    
+    /* 딱붙어있고 상하여백포함 공백을 유지 -> 각 요소에서 위 아래50 */
+    align-content: space-around;
+    /* 딱붙어있고 상하여백포함 공백을 유지 ->  요소의 위로 50 위끝 아래끝의 여백이 일정해짐*/
+    align-content: space-evenly;
+    /* 딱붙어있고 일정한 공백을 유지 (기본값이다) */
+    align-content: space-between;
+
+}
