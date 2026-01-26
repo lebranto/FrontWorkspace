@@ -39,14 +39,36 @@
     </h3>
 
      <div class="flex-container">
-        <div class="item item1 grow1">item1</div>
-        <div class="item item1 grow1">item1</div>
-        <div class="item item1 grow1">item1</div>
-        <div class="item item1 grow1">item1</div>
-        <div class="item item2 grow2">item2</div>
-        <div class="item item3 grow3">item3</div>
-        <div class="item item4 grow4">item4</div>
+        <div class="item item1 shrink1">item1</div>
+        <div class="item item2 shrink2">item2</div>
+        <div class="item item3 shrink3">item3</div>
+        <div class="item item4 shrink4">item4</div>
     </div>
     
+    <hr>
+
+    <h3>flex-basis
+        -item의 중심축 방향으로의 점유율(크기)을 지정하는 속성
+    </h3>
+    
+    <div class="flex-container">
+        <div class="item item1 basis-150px">item1</div>
+        <div class="item item2 basis-10">item2</div>
+        <div class="item item3 basis-25">item3</div>
+        <div class="item item4 flex1">item4</div>
+    </div>
+
+
+    <h3>
+        aline-self : 각각의 item별로 교차축 방향으로의
+        정렬을 지정하는 속성
+    </h3>
+
+    <div class="flex-container">
+        <div class="item item5 self-start">item5</div>
+        <div class="item item6 self-end">item6</div>
+        <div class="item item7 self-center">item7</div>
+    </div>
+
 </body>
 </html>
