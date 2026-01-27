@@ -61,28 +61,22 @@
 		}
 
 		function printProduct(){
-			var list = document.querySelectorAll("option");
+			var list = document.querySelector("#productName");
 			var level = document.querySelector("#productLevel");
 			var amount = document.querySelector("input[id=productAmount]")
 			var another = document.querySelector("#message")
 
-			console.log(amount.value);
-
-			var goods = ""
-
-			for(var i = 0 ; i< list.length ;i++){
-				list[i] = goods
-			}
+			console.log(list.value);
 
 			confirm(
-			"상품명 : " + goods.value
+			"상품명 : " + list.value
 			+"\n 납품등급 : " + level.value
 			+"\n 납품수량 : " + amount.value
-			+"\n 기타사항 : " + another.text //??
+			+"\n 기타사항 : " + another.value //??
 			+"\n 입력하신 값이 맞습니까?")
 
 			if(confirm){
-				result.innerText = "상품명 : " + goods.value
+				result.innerText = "상품명 : " + list.value
 			                      +"\n 납품등급 : " + level.value
 			                      +"\n 납품수량 : " + amount.value
 			                      +"\n 기타사항 : " + another.value //??
