@@ -101,15 +101,24 @@
         */
         function printCategory(){
 
-            var a = document.querySelectorAll("input[type=checkbox]")
-            var hobby = "";
+            // var a = document.querySelectorAll("input[type=checkbox]")
+            // var hobby = "";
 
-            for(let i = 0; i < a.length;i++){
-                if (a[i].checked){
-                area.textContent = a[i].value;
-                }
+            // for(let i = 0; i < a.length;i++){
+            //     if (a[i].checked){
+            //     hobby += " " + a[i].value;
+            //     }
+            // }
+            // area.textContent = hobby;
+
+
+
+            area.innerHTML=" "; // 내용초기화  // 실무에서는 쓰지 말기..
+           var category = document.querySelectorAll("input[name=category]:checked")
+            for(let i = 0; i < category.length;i++){
+                area.innerHTML += category[i].value + " ";
             }
-        
+           
             
         }
 
@@ -118,19 +127,24 @@
         */
         function selectAll(){
 
-            var all = document.querySelectorAll("input[name=category]")
-            var b = document.querySelector("#selectAll");
-
-           
+            // var all = document.querySelectorAll("input[name=category]")
+            // var b = document.querySelector("#selectAll");
 
         
-                for(var i = 0 ; i< all.length; i++){
-                    all[i].checked = false;
+            //     for(var i = 0 ; i< all.length; i++){
+            //         all[i].checked = false;
                    
-                    if(b.checked){
-                        all[i].checked = true;
-                    }
-                }
+            //         if(b.checked){
+            //             all[i].checked = true;
+            //         }
+            //     }
+
+            var checked = document.querySelector("#selectAll").checked
+            var categorys = document.querySelectorAll("input[name=category]")
+
+            for(var i = 0 ; i< categorys.length; i++){
+                categorys[i].checked = checked
+            }
             
         }
 
@@ -139,13 +153,16 @@
            하나라도 선택이 되어있지 않으면 전체선택 체크박스는 선택 해제
         */
         function checkCategory(checkbox){
+            var selectAll = document.querySelector("#selectAll");
+            // 전체 선택 체크박스
             var all = document.querySelectorAll("input[name=category]")
-            console.log(all);
-
-            if(checkbox.checked){
-                b.checked = true;
-            }
+            var checkedBox = document.querySelectorAll("input[name=category]:checked")
+    
+         
+                selectAll.checked = all.length == checkedBox
            
+
+
         }
     </script>
 </body>

@@ -63,6 +63,35 @@
     <script>
         // console.log(a);
     </script>
+
+    <h1>Hoisting</h1>
+    <script>   
+
+        //var b;  var 키워드 변수는 hoisting 된다.
+        // function foo() 함수는 hoisting 된다. 
+        // const, let은 안된다.
+
+        console.log(b);  //undefined
+        var b = "안녕";
+        foo();
+
+        // 함수도 hoisting 된다.
+        // 함수 선언식
+        function foo(){
+            console.log("foo");
+        }
+
+        //함수 표현식(함수를 값으로서 쓰는 것)으로 생성한 함수는 호이스팅 되지 않는다.
+
+        //bar(); 에러가 난다.
+        
+        var bar = function(){
+            console.log('bar')
+        };
+
+        bar();
+
+    </script>
     
 </body>
 </html>
