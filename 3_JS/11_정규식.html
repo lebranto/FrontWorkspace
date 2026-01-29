@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+  #area {
+    margin: 30px 10px;
+  }
+  mark {
+    background-color: magenta;
+  }
+  </style>
+</head>
+<body>
+ 
+  <h1>Regular Expression</h1>
+  <input type="button" value="기본" onclick="test1();">
+  <input type="button" value="flag - g | i | m" onclick="test2();">
+  <input type="button" value="anchor - ^ | $" onclick="test3();">
+  <input type="button" value="@실습문제" onclick="test4();">
+  <input type="button" value="." onclick="test5();">
+  <input type="button" value="[]" onclick="test6();">
+  <input type="button" value="@실습문제" onclick="test7();">
+  <input type="button" value="\d \w \s" onclick="test8();">
+  <input type="button" value="( | )" onclick="test9();">
+  <input type="button" value="escaping" onclick="test10();">
+  <input type="button" value="* + ?" onclick="test11();">
+  <input type="button" value="{n,m}" onclick="test12();">
+  <input type="button" value="look around" onclick="test13();">
+  <div id="area"></div>
+
+
+  <script>
+    var mark ="<mark>$&</mark>"
+
+    function test1(){
+        /* 
+            정규 표션식
+             - 특정 규칙을 가진 문자열 집합에 대한 형식 언어
+             - 유요성 검사 , 검색  문자열 치환 작업등에서 효율적인 처리가 가능
+             - 간결한 코드를 만드는 표현식 숙지가 쉽지 않으면 언어 독립적
+             으로 동작한다.
+        */
+
+        // 정규식 객체 생성
+
+        var re1 = /a/;
+        var re2 = new RegExp(/[0-9]/);
+        var re3 = new RegExp("[a-z]"); //문자열 형식
+
+        // 정규 표현식의 메서드
+        // test() : boolean
+        console.log(re1.test('abcde'));  // 문자열에 a가 있는가
+        console.log(re1.test('bcdef'));
+
+        console.log(re2.test('jondsa123')) // 숫자 패턴이 있는가
+        console.log(re2.test('jondsa!?')) 
+        
+        console.log(re3.test('jondsa123')) // 영어 단어가 존재 하는가
+        console.log(re3.test('123')) 
+
+
+        //문자열 정규식 활용 매서드
+        // match
+        console.log('cba'.match(re1));
+
+        //search : 일치하는 인덱스
+        console.log('mwayay'.search(re1));  // 첫번째로 a가 있는 인덱스 값 반환
+
+        //replace : 문자열 치환
+        console.log("rkasuranak".replace(re1, "A")); // 첫번째만 바꾼다.
+        console.log("rkasuranak".replace(/a/g, "A")); // 모두 바뀐다.
+        // replace는 전체로 바꾸려고 할때는 정규식을 사용하지 못한다.      
+
+    }
+
+
+    function test2(){
+        /*
+            flag 문자
+             - g(global) : 정규식에 대한 전역비교를 수행하는 기호
+             - i(ignore) : 영문자중 대소문자를 구분하지 않고 비교를 수행
+             - m(multi-line) : 개행문자를 기준으로 여러줄이 있는 경우, 줄단위 비교를 수행
+
+            -뭉쳐서 사용하는 것도 가능 순서는 상관 없다.
+        */
+
+        var str = "Javascript jQuery Ajax"
+
+        area.innerHTML = str.replace(/a/gi, "<mark>$&</mark>");
+        //$& 매칭된 text를 가리키는 키워드, 여기선 a,A
+
+    }
+
+
+    function test3(){
+        /*
+            anchor문자
+             - ^ : 문자열의 시작을 확인  /^a/ 각 문자열의 a로 시작되는 부분
+             - $ : 문자열 끝을 확인    /a$/ 각 문자열의 a로 끝나는 부분
+        */
+
+        var str = "Javascript\nxxx\njQuery\nAjax";
+        area.innerHTML 
+                      = //str.replace(/^j/igm, "<mark>$&</mark>");
+                        str.replace(/x$/igm, "<mark>$&</mark>")
+        
+    }
+
+
+    function test4(){
+
+        /*
+          사용자로부터 문자열을 입력받고(prompt),
+          k로 시작하면서, h로 끝나는 경우에는 잘하셨습니다.
+          아닌 경우, 적합한 문자가 아닙니다. 경고창을 띄우세요.
+        */
+
+        var str = prompt("문자열을 입력하세요");
+        // if (str.match(/^k/igm) && str.match(/h$/igm)){
+        //     alert("잘하셨습니다.")
+        // }else{
+        //     alert("적합한 문자가 아닙니다.")
+        // }
+
+        // str.match(/^k/igm) && str.match(/h$/igm) ? alert("잘하셨습니다.") : alert("적합한 문자가 아닙니다.")
+
+        // str.match(/^k/igm) && str.match(/h$/igm) && alert("잘하셨습니다.") 
+        // str.match(/^k/igm) && str.match(/h$/igm) || alert("적합한 문자가 아닙니다.")
+
+        // var re1 = /^k/igm;
+        // var re2 = /h$/igm;
+
+        // if(re1.test(str) && re2.test(str))
+        
+    }
+
+
+    function test5(){
+        /*
+            DOT
+            -  . 포인트 임의의 "한글자"        
+        */
+
+        var re1 = /^...$/;  // 3글자인 단어, 앞뒤에 앵커문자가 없다면 문자가 3글자 이상인 단어
+        console.log(re1.test('ab'))
+        console.log(re1.test('abc'))
+        console.log(re1.test('abcd'))
+
+        var re2 = /a.b/g;
+        area.innerHTML = 
+            "ab aab aaab".replace(re2,mark)  //aab aaab가 바뀐다.
+
+            var re3 = /in..$/;
+            ["goingo","goin","gointo","going"].forEach(function(){
+                console.log(s,re3.test(s))
+            })
+
+            var re4 = /^c...k$/;
+            ["ck","cbk","cbak","cbawk"].forEach(function(s){
+                console.log(re4.test(s))
+            })
+
+    }
+
+
+    function test6 (){
+
+        /*
+            []
+             - 한글자를 의미하며, 문자의 범위를 나타낸다.  -> [az] a 또는 z가 포함되어 있나
+             - 대괄호 안에 사용되는 ^는 특정 문자는 제외하겠다는 의미를 가진다.
+             - 다른 기호는 기능을 잃고 문자열 그대로 찾게 된다. ? + - .        
+        */
+
+        var s = "Javascript jquery Ajax 12345"
+
+        //a 또는 j 문자를 찾아서 mark로 변환
+        area.innerHTML = 
+            // s.replace(/[aj]/g, mark)
+
+        // a또는 j가 아닌 문자를 mark로 반환
+        //s.replace(/[^aj]/g, mark)
+        
+        // 영어 대문자 패턴을 모주 찾아서 mark로 변환
+        //s.replace(/[A-Z]/g, mark)
+        //s.replace(/[0-9]/g, mark)
+
+
+        // 영어 대문자 + 숫자패턴
+        s.replace(/[A-Z0-9a-z]/g, mark);
+
+        //한글패턴
+
+        var han = "안녕하세요. 저는 kwon 입니다. ㄱㄱㄱ ㅏㅏㅏ"
+        area.innerHTML =
+            han.replace(/[ㄱ-ㅎㅏ-ㅣ가-힣]/g,mark)
+
+
+
+    }
+
+
+
+
+
+
+  </script>
+
+</body>
+</html>

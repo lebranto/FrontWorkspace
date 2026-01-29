@@ -18,14 +18,15 @@
 	<script>
 		function mkAddFunc (){
 			var add = document.querySelector("input#myadder")
-			sum = 0;
-			
-			return function(){
+			var sum = 0;
+			return function (){
+				if(isNaN(add.value)) return;
 					sum = sum + Number(add.value)
 				    alert(sum)
 				}
-					
 			}
+
+			
 
 		var addFunc = mkAddFunc();
 	</script>

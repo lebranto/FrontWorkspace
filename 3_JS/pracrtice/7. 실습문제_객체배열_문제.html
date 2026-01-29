@@ -25,35 +25,18 @@
     //1.객체배열 생성 및 요소추가
     var students = [];
     
-    function Str(name, java, orcle, html5, css, javascript){
-      this.name = name;
-      this.java = java;
-      this.orcle = orcle;
-      this.html5 = html5;
-      this.css=css;
-      this.javascript = javascript;
 
-      this.sum = function(){
-        return java+oracle+html5+css+javascript;
-      }
-      this.avg = function(){
-        return (java+oracle+html5+css+javascript)/4;
-      }
-    }
-
-    var str1 = new Str('김동현', 90, 56, 56, 44, 34);
-    var str2 = new Str('유관순', 76, 23, 56, 44, 34);
-    var str3 = new Str('김동현', 100, 56, 50, 32, 88);
-
-    students=[str1,str2,str3]
-
-    console.log(students);
-  
-
+    students.push(new Student('김동현', 90, 56, 56, 44, 34));
+    students.push(new Student('유관순', 76, 23, 56, 44, 34));
+    students.push(new Student('김동현', 100, 56, 50, 32, 88));
 
 
     //2.반복문을 통해 객체배열 순회. 요소별 toString메소드 호출하기
 
+    for(var student of students){
+      console.log(student.toStrng());
+    }
+    
 
     /* 
       출력결과 : 
@@ -67,6 +50,28 @@
    * Student 선언 (class 방식, 생성자 함수방식 아무거나   
    */ 
 
+   class Student{
+    constructor(name, java, orcle, html5, css, javascript){
+      this.name = name;
+      this.java = java;
+      this.orcle = orcle;
+      this.html5 = html5;
+      this.css=css;
+      this.javascript = javascript;
+    }
+    getSum(){
+      return this.java + this.orcle + this.html5 + this.css + this.javascript   //this 붙이기
+    }
+
+    getAvg(){
+      return Math.round(this.getSum()/5 *10) / 10;
+    }
+
+    toStrng(){
+      return "이름 = " + this.name + ", 자바 = " + this.java  +  ", 오라클 = " + this.orcle + ", html = "+ this.html5 + this.getSum() + this.getAvg(); 
+    }
+
+   }
    
 
   </script>
