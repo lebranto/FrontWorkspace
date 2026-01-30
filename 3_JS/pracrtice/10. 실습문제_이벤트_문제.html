@@ -36,33 +36,44 @@
   </div>
   <script>
 
-    document.querySelector("#btn-generate").onclick = function(){
+    document.querySelector("#btn-generate").onclick = function(e){
 
-      var s = [];
+      var btns = document.querySelectorAll(".btn-wrapper>button");
 
-      s.push(new Javascript("네이버","https://www.naver.com"))
-      s.push(new Javascript("구글","https://www.google.com"))
-      s.push(new Javascript("KH","https://www.iei.or.kr"))
-      s.push(new Javascript("와삼","https://www.w3schools.com"))
 
-      console.log(s)
+      for(var button of btns){
+        var btn = document.createElement("button");
+        btn.innerText = button.innerText
+        btn.dataset.url = button.dataset.url
+       
+        btn.onclick = function(e){
+        location.assign(this.dataset.url);  //button.dataset.url
+        } 
+        document.querySelector(".btn-wrapper").appendChild(btn)
+
+      }
       
-      document.querySelector(".btn-wrapper").addEventListener(
-        'onclick', function(e){
-         for(var jpt of s)
-          console.log(jpt)
-        
-        
+    //   class Javascript{
+    //    constructor(value, url){
+    //      this.value = value;
+    //      this.url = url
+    //    }
+    // }
+    //   var s = [];
 
-
-      })
+    //   s.push(new Javascript("네이버","https://www.naver.com"));
+    //   s.push(new Javascript("구글","https://www.google.com"));
+    //   s.push(new Javascript("KH","https://www.iei.or.kr"));
+    //   s.push(new Javascript("와삼","https://www.w3schools.com"));
       
-      class Javascript{
-       constructor(value, url){
-         this.value = value;
-         this.url = url
-       }
-    }
+      
+    //   for(var jpt in s){
+    //       var b=  document.createElement("button");
+    //       var a = console.log(s[jpt].url);
+    //           b.append(a);
+    //       document.querySelector(".btn-wrapper").appendChild(b)
+    //      } 문제를 잘못 알아 들은거 ..
+      
   }
   </script>
 
