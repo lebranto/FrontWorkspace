@@ -1,0 +1,111 @@
+/* 공용 스타일 작성 시작*/
+div{
+    box-sizing: border-box;
+}
+
+#container{
+    width: 1200px;
+    margin:auto;
+}
+
+/* 공용 스타일 작성 끝*/
+
+/* Header 스타일 작성 시작*/
+#head{
+    height: 150px;
+    display: flex;
+    background-color: rgb(35, 97, 212);
+}
+
+#head>div:nth-child(1){
+     flex-basis:15%;
+}
+
+#head>div:nth-child(2){
+     flex-basis:70%;
+}
+
+#logo{
+    display : block
+}
+
+#search{
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin:20px auto
+}
+
+#logo>div{
+     font-size: 30px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     margin:10px
+}
+
+#head>div:nth-child(3){
+     flex-basis:15%;
+}
+
+
+#logo{
+    font-weight: bolder;
+    color : white
+}
+
+#logo>p{
+    text-align: center;
+}
+
+/* Header 스타일 작성 끝*/
+
+/* 상품 스타일 작성 시작*/
+#mid{
+    height: 1000px;
+    display: flex;
+    background-color: orang;
+}
+
+#mid>div:nth-child(1){
+    flex-basis:70%;
+    background-color: rgb(226, 226, 226);
+}
+
+#mid>div:nth-child(2){
+    flex-basis:30%;
+    background-color: rgb(226, 226, 226);
+    text-align: center;
+}
+
+
+/* 상품 스타일 작성 끝*/
+
+/* 모달 스타일 작성 시작*/
+
+/* 모달 스타일 작성 끝*/
+
+/* 장바구니 스타일 작성 시작*/
+
+
+
+div[name=shop]{
+    background-color: gray;
+    align-items: center;
+    justify-content: center;
+}
+/* 장바구니 스타일 작성 끝*/
+
+/* 푸터 스타일 작성 시작*/
+
+#foot{
+    height: 50px;
+    display: flex;
+    background-color: black;
+    color: white;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 푸터 스타일 작성 끝*/
+
